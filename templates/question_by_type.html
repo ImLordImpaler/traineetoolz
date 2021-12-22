@@ -1,0 +1,33 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">{{pk}}</h1>
+      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
+  </div>
+  <div class="table-responsive-sm">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in ques %}
+          <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.ques}}</td>
+            <td><button type="button" class="badge bg-info text-white" data-bs-toggle="popover" title="{% for j in i.company.all %} {{j}} {% endfor %}" data-bs-content="And here's some amazing content. It's very engaging. Right?">{{i.company.all.count}}</button></td>
+            <td>{{i.difficulty}}</td>
+            <td><a href="{% url 'question_detail' pk=i.id %}" class='btn btn-sm btn-primary'>View</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+{% endblock content %}

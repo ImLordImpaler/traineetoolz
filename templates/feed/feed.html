@@ -1,0 +1,38 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+    <div class='row'>
+        <div class='jumbotron'>
+            <form action="{% url 'feed' %}" method='post'> {% csrf_token %}
+                <h3>Got something on your mind? </h3>
+                <input type="text" class="form-control" name='data' placeholder="Enter Something Anything" />
+                <button class='btn btn-sm btn-primary'>Submit</button>
+            </form>
+        </div>
+    </div>
+    {% for i in posts %}
+        <div class='row my-4'>
+            <div class='card'>
+                <div class='card-header'>
+                    <h2>{{i.user.username}}</h2>
+                </div>
+                <div class='card-body'>
+                    <h3>{{i.text}} </h3>
+                </div>
+                <div class='card-footer'>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <button class='btn btn-primary btn-sm'>Upvotes</button>
+                        </div>
+                        <div class='col-sm-4'>
+                            <button class='btn btn-danger btn-sm'>Downvotes </button>
+                        </div>
+                        <div class='col-sm-4'>
+                            <button class='btn btn-warning btn-sm'>Comments</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
