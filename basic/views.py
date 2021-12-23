@@ -2,8 +2,8 @@ from django.shortcuts import render
 from basic.models import Company , Question , Method , Difficulty , Type
 
 from notes.models import Unit , Subject
-
-
+from article.models import Article
+from doubt.models import Doubt
 
 
 
@@ -12,11 +12,16 @@ def index(request):
     types = Type.objects.all()
     subjects = Subject.objects.all()
     unit = Unit.objects.all()
+    articles = Article.objects.all()
+    doubts = Doubt.objects.all()
+
     context = {
+        'articles': articles,
         'unit': unit,
         'subjects': subjects,
         'companies':companies,
-        'types': types
+        'types': types,
+        'doubts':doubts
     }
     return render(request , 'index.html', context)
 
