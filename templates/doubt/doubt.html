@@ -1,3 +1,27 @@
 {% extends 'basic.html' %}
 
-{% block content %}{% endblock content %}
+{% block content %}
+
+<div class='container border'>
+    <h3>{{doubt.ques}} </h3>
+    <h5>@{{doubt.user.username}}</h5>
+    <p>{{doubt.body}}</p>
+</div>
+<div class='container border'>
+    <!-- Comments-->
+    {% for i in doubt.responses.all %}
+    <div class='row'>
+        <div class='card border'>
+            <h5>@{{i.user.username}} </h5>
+            <h3>{{i.answer}}</h5>
+        </div>
+    </div>
+    {% endfor %}
+    <div class='row border'>
+        <form class='' method="post" action=""> {% csrf_token %}
+            <input type="text" class="form-control" name='response' />
+            <button class='btn btn-primary'>Submit</button> 
+        </form>
+    </div>
+</div>
+{% endblock content %}

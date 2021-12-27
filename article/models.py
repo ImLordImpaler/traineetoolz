@@ -9,8 +9,10 @@ class Article(models.Model):
     body =  models.TextField()
     isApproved = models.BooleanField(default=False)
     reactions = models.ManyToManyField('Reaction' , related_name='article_reaction' , blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(upload_to="images/",null=True, blank=True)
     #tags
+    published = models.BooleanField(default=False)
+
     def __str__(self):
         return str(self.user.username + " - "+ self.title)
 

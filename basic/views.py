@@ -12,7 +12,7 @@ def index(request):
     types = Type.objects.all()
     subjects = Subject.objects.all()
     unit = Unit.objects.all()
-    articles = Article.objects.all()
+    articles = Article.objects.filter(published=True)
     doubts = Doubt.objects.all()
 
     context = {

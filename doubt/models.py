@@ -6,12 +6,15 @@ class Doubt(models.Model):
     date = models.DateField(auto_now_add=True)
     #tags 
     body = models.TextField(null=True, blank=True)
-
+    tags = models.ManyToManyField('Tag')
     responses = models.ManyToManyField('Response' ,related_name='doubt_response', blank=True)
 
     def __str__(self):
         return self.ques
-
+class Tag(models.Model):
+    name = models.CharField(max_length=1000)
+    def __str__(self):
+        return self.name
 class Response(models.Model):
     user = models.ForeignKey(User , on_delete=models.CASCADE)
     answer = models.TextField()
