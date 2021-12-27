@@ -1,0 +1,24 @@
+{% extends "accounts/basic.html" %}
+{% block content %}
+{% load static %}
+<form class="form-signin bg-white" method="post" action="" style="border:1px solid black; border-radius:10px; box-shadow: 1px 1px;">
+    <img class="mb-4" src="{% static 'brand/bootstrap-solid.svg'%}" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    <label for="inputEmail" class="sr-only">UserName</label>
+    <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+    <label for="inputPassword" class="sr-only">Confirm Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Confirm Password" required>
+    
+    <label for="inputPassword" class="sr-only">Email</label>
+    <input type="email" id="inputPassword" class="form-control" placeholder="Email Address" required>
+    <div class="checkbox mb-3">
+      
+    </div>
+    <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">Submit</button>
+    <p class="mt-5 mb-3 text-muted">Welcome To TrainneToolz</p>
+</form>
+{% endblock content %}

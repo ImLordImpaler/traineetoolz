@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'basic',
     'notes',
     'doubt',
-    'article'
+    'article',
+    'accounts'
 ]
 
 MIDDLEWARE = [

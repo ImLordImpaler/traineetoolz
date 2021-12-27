@@ -76,10 +76,10 @@
         </ul>
         <form class="form-inline mt-2 mt-md-0">
           {% if user.is_authenticated %}
-          <button class="btn-sm btn btn-danger my-2 my-sm-0" >Logout</button>
+          <a href="{% url 'signout' %}" class="btn-sm btn btn-danger my-2 my-sm-0" >Logout</a>
         
           {% else %}
-          <button class="btn-sm btn btn-success my-2 my-sm-0" >Login</button>
+          <a href="{% url 'signin' %}" class="btn-sm btn btn-success my-2 my-sm-0" >Login</a>
         
           {% endif %}
         </form>
