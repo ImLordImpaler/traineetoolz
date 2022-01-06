@@ -20,7 +20,7 @@
                             <h4 class='text-white'>{{i.title}}</h4>
                             <a href="#" class='ml-4 '>Follow</a>
                             </div>
-                            <span class="d-block text-white">@{{i.user.username}} | {{i.date}}</span>
+                            <a href="{% url 'profile' i.user.id %}"><span class="d-block text-white">@{{i.user.username}} | {{i.date}}</span></a>
                         </div>
                 </div>
             {% endfor %}

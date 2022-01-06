@@ -10,12 +10,18 @@ class Profile(models.Model):
     l_name = models.CharField(max_length=255)
     age = models.IntegerField(default=18)
     designation = models.CharField(max_length=255)
-
+    skills = models.ManyToManyField('Skill' , blank=True )
+    #linkedin
+    #github
+    #twitter
     image = models.ImageField(upload_to='profile/')
-
     def __str__(self):
         return self.user.username
 
+class Skill(models.Model):
+    name=models.CharField(max_length=255)
+    def __str__(self):
+        return self.name
 
 @receiver(post_save, sender = User)
 def create_profile(sender , instance , created , **kwargs):

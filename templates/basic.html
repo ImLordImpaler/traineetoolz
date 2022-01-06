@@ -12,6 +12,8 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/starter-template/">
     <link href="{% static 'offcanvas.css'%}" rel="stylesheet">
     <link href="{% static 'pricing.css'%}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'icons/top-logo.ico'%}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <!-- Bootstrap core CSS -->
 <link href="{% static 'dist/css/bootstrap.min.css'%}" rel="stylesheet">
 
@@ -36,14 +38,14 @@
 <body>
   <header>
    
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background:#1F4E70;">
       
-      <a class="navbar-brand" href="{% url 'index' %}">TrainneToolz</a>
+      <img src="{% static 'img/logo.png' %}" style="height:5rem;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto ml-md-4">
           <li class='nav-item'>
             <a class="nav-link" href="{% url 'doubtIndex' %}">Doubt</a>
           </li>
@@ -76,6 +78,7 @@
         </ul>
         <form class="form-inline mt-2 mt-md-0">
           {% if user.is_authenticated %}
+          <a href="{% url 'profile' user.id %}"><i class="fas fa-id-badge mr-md-5 mr-sm-2" style="font-size:1.7rem; color:white;"></i></a>
           <a href="{% url 'signout' %}" class="btn-sm btn btn-danger my-2 my-sm-0" >Logout</a>
         
           {% else %}
@@ -87,7 +90,14 @@
     </nav>
   </header>
 
-
+<style>
+  body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  }
+  .container{
+    background-color:white;
+  }
+  </style>
 
   {% block content %}{% endblock content %}
 
