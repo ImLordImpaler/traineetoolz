@@ -1,8 +1,8 @@
 {% extends "accounts/basic.html" %}
 {% block content %}
 {% load static %}
-<form class="form-signin bg-white" method="post" action="" style="border:1px solid black; border-radius:10px; box-shadow: 1px 1px;">
-    <img class="mb-4" src="{% static 'brand/bootstrap-solid.svg'%}" alt="" width="72" height="72">
+<form class="form-signin bg-dark" method="post" action="" style="border:1px solid black; border-radius:10px; box-shadow: 1px 1px;">
+    <img class="mb-4" src="{% static 'img/icon.png'%}" alt="" width="100" height="100">
     <h1 class="h3 mb-3 font-weight-normal">Register</h1>
     <label for="inputEmail" class="sr-only">UserName</label>
     <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
@@ -19,6 +19,6 @@
       
     </div>
     <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">Submit</button>
-    <p class="mt-5 mb-3 text-muted">Welcome To TrainneToolz</p>
+    <a href="{% url 'signin' %}" class="mt-5 mb-3 text-muted">Login?</a>
 </form>
 {% endblock content %}

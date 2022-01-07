@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 <form class="form-signin bg-white" method="post" action="" style="border:1px solid black; border-radius:10px; box-shadow: 1px 1px;"> {% csrf_token %}
-    <img class="mb-4" src="{% static 'brand/bootstrap-solid.svg'%}" alt="" width="72" height="72">
+    <img class="mb-4" src="{% static 'img/logo.png'%}" alt="" width="150" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">Username</label>
     <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Enter Username" required autofocus>
@@ -12,6 +12,6 @@
       
     </div>
     <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">Sign in</button>
-    <a href="" class="mt-5 mb-3 text-dark">New Here? Register!</a>
+    <a href="{% url 'register' %}" class="mt-5 mb-3 text-dark">New Here? Register!</a>
 </form>
 {% endblock content %}

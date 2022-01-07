@@ -4,6 +4,7 @@
 {% block content %}
 
 {% load static %}
+<div class="mt-4"></div>
 <main role="main">
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -86,17 +87,17 @@
       </div>
     </div>
     <div class='col-sm-5'>
-      <div class="my-3 p-3  rounded shadow-sm bg-dark text-white">
+      <div class="my-3 p-3  rounded shadow-sm ">
         <h3 class="border-bottom border-gray pb-2 mb-0">Have A Doubt?</h3>
         {% for i in doubts %}
-          <div class="media text-muted pt-3 text-white">
+          <div class="media text-muted pt-3 text-dark">
             <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
               <div class="d-flex justify-content-between align-items-center w-100">
-                <a href="{% url 'profile' i.user.id %}"><strong class="text-gray-dark text-white">@{{i.user.username}}</strong></a>
+                <a href="{% url 'profile' i.user.id %}"><strong class="text-gray-dark ">@{{i.user.username}}</strong></a>
                 <a href="#">Follow</a>
               </div>
-              <span class="d-block text-white">{{i.ques}}</span>
+              <span class="d-block text-dark">{{i.ques}}</span>
             </div>
           </div>
         {% endfor %}
@@ -133,50 +134,13 @@
   </div>
   <!-- Ques based on difficulty-->
   <div class="card-deck mb-3 text-center p-5">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Easy</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">45 <small class="text-muted">Ques</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Strings</li>
-          <li>Array</li>
-          <li>Searching And Sorting</li>
-          
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Get started</button>
-      </div>
+    {% for i in difficulty %}
+    <div class="card mb-4 shadow-sm py-3 bg-dark text-white">
+      <a href="{% url 'question_diff' i.id %}" style="color:white;"><div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{i}}</h4>
+      </a></div>
     </div>
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Medium</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">64 <small class="text-muted">Ques</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Dynamic Programming </li>
-          <li>Greedy Approach</li>
-          <li>Linked List</li>
-          <li>Hashing</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-      </div>
-    </div>
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Hard</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">34 <small class="text-muted">Ques</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>NP Problems</li>
-          <li>Trees</li>
-          <li>Graphs</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-      </div>
-    </div>
+    {% endfor %}
   </div>
   
   <hr>

@@ -14,6 +14,7 @@ class Method(models.Model):
     statement = models.TextField(blank=True)
     algo = models.ImageField(null=True , blank=True)
     code = models.ImageField(null=True, blank=True)
+    
 # TYPE_CHOICES = (
 #     ('String' , 'String'),
 #     ('Array' , 'Array'),

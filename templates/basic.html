@@ -40,7 +40,7 @@
    
     <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background:#1F4E70;">
       
-      <img src="{% static 'img/logo.png' %}" style="height:5rem;">
+      <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" style="height:5rem;"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -92,7 +92,8 @@
 
 <style>
   body{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    {% comment %} background: -webkit-linear-gradient(left, #3931af, #00c6ff); {% endcomment %}
+    background:#1F4E70;
   }
   .container{
     background-color:white;
